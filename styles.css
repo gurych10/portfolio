@@ -42,8 +42,8 @@ header h1 {
     background: transparent;
 }
 .icon {
-    width: 24px; /* Размер иконки */
-    height: 24px;
+    width: 40px; /* Размер иконки */
+    height: 36px;
     vertical-align: middle; /* Выравнивание с текстом */
     transition: transform 0.3s ease; /* Анимация hover вместе с ссылкой */
 }
@@ -107,7 +107,7 @@ h2 {
 }
 
 .tech-list, ul {    
-    list-style-type: disc;
+    list-style-type: none;
     padding-left: 2rem;
 }
 
@@ -260,9 +260,8 @@ audio {
 
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: 0.10rem;
     background: rgba(248, 248, 248, 0.9);
-    border-top: 1px solid #ddd;
 }
 
 @keyframes fadeInUp {
@@ -323,7 +322,20 @@ footer {
 .hero, section, header, .custom-player {
     background: rgba(255, 255, 255, 0.5) !important;
 }
-
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d502ed, transparent); /* Градиентная линия */
+    margin: 2rem 0;
+    border: none; /* Убираем default-стиль hr */
+}
+.section-divider1 {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d502ed, transparent); /* Градиентная линия */
+    margin: 1rem 0;
+    border: none; /* Убираем default-стиль hr */
+}
 .mobile-nav {
     display: none;
 }
