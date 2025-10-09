@@ -78,8 +78,8 @@ header h1 {
 /* Для мобильных: иконки в столбик */
 @media (max-width: 768px) {
     .contacts {
-        flex-direction: column;
-        gap: 0.1rem;
+        
+        gap: 4rem;
     }
 }
 
@@ -364,3 +364,4 @@ footer {
         padding: 0.5rem;
     }
 }
+
