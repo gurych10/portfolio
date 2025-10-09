@@ -50,11 +50,81 @@ header h1 {
 
 .contacts a:hover {
     color: #fff;
-    transform: scale(1.55); /* Лёгкий зум */
-    
-    
+    transform: scale(1.55); /* Лёгкий зум */  
+}
+/* Темный режим */
+body.dark-mode {
+    background-color: #1a1a1a; /* Тёмный фон */
+    color: #f0f0f0; /* Светлый текст */
 }
 
+body.dark-mode header,
+body.dark-mode section,
+body.dark-mode .custom-player,
+body.dark-mode #about {
+    background: rgba(26, 26, 26, 0.8) !important; /* Тёмные прозрачные блоки */
+    color: #f0f0f0;
+    border-color: rgba(0, 123, 255, 0.3); /* Синяя линия для разделителей */
+}
+
+body.dark-mode .contacts a {
+    color: #4da6ff; /* Светлее синий для ссылок */
+}
+
+body.dark-mode h1, body.dark-mode h2 {
+    color: #ffffff; /* Яркие заголовки */
+}
+
+/* Аудио-плееры в тёмном: */
+body.dark-mode audio::-webkit-media-controls-panel {
+    background-color: #333; /* Тёмная панель плеера (Chrome) */
+    color: #fff;
+}
+
+/* Кнопка переключения */
+.theme-btn {
+    background: none;
+    border: 1px solid #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: #007bff;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.theme-btn:hover {
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.theme-btn .sun {
+    display: block; /* По умолчанию светлый режим */
+}
+
+.theme-btn .moon {
+    display: none;
+}
+
+body.dark-mode .theme-btn .sun {
+    display: none;
+}
+
+body.dark-mode .theme-btn .moon {
+    display: block;
+}
+
+/* Для мобильных: Кнопка меньше */
+@media (max-width: 768px) {
+    .theme-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
 
 /* Для мобильных: иконки чуть больше */
 @media (max-width: 768px) {
@@ -364,4 +434,5 @@ footer {
         padding: 0.5rem;
     }
 }
+
 
