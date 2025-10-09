@@ -172,7 +172,34 @@ function formatTime(seconds) {
     const secs = Math.floor(seconds % 60);
     return mins + ':' + (secs < 10 ? '0' : '') + secs;
 }
+// Темный режим
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    // Переключаем иконки кнопки
+    const sun = document.querySelector('.sun');
+    const moon = document.querySelector('.moon');
+    if (isDark) {
+        sun.style.display = 'none';
+        moon.style.display = 'block';
+    } else {
+        sun.style.display = 'block';
+        moon.style.display = 'none';
+    }
+}
 
+// Загрузка сохранённой темы при старте
+window.addEventListener('load', () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        // Иконки
+        document.querySelector('.sun').style.display = 'none';
+        document.querySelector('.moon').style.display = 'block';
+    }
+});
 // Инициализация анимаций (fade-in по скроллу)
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -183,3 +210,4 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 document.querySelectorAll('.animate-fade').forEach(el => observer.observe(el));
+
