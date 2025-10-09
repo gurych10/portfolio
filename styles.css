@@ -145,7 +145,7 @@ body.dark-mode .theme-btn .moon {
 
 
 
-/* Для мобильных: иконки в столбик */
+/* Для мобильных: иконки в строку */
 @media (max-width: 768px) {
     .contacts {
         
@@ -434,5 +434,6 @@ footer {
         padding: 0.5rem;
     }
 }
+
 
 
