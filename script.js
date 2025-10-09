@@ -172,6 +172,7 @@ function formatTime(seconds) {
     const secs = Math.floor(seconds % 60);
     return mins + ':' + (secs < 10 ? '0' : '') + secs;
 }
+
 // Темный режим
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
@@ -200,6 +201,7 @@ window.addEventListener('load', () => {
         document.querySelector('.moon').style.display = 'block';
     }
 });
+
 // Инициализация анимаций (fade-in по скроллу)
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -210,4 +212,3 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 document.querySelectorAll('.animate-fade').forEach(el => observer.observe(el));
-
