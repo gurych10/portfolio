@@ -50,7 +50,9 @@ header h1 {
 
 .contacts a:hover {
     color: #fff;
-    transform: scale(1.55); /* Лёгкий зум */  
+    transform: scale(1.55); /* Лёгкий зум */
+    
+    
 }
 /* Темный режим */
 body.dark-mode {
@@ -145,11 +147,11 @@ body.dark-mode .theme-btn .moon {
 
 
 
-/* Для мобильных: иконки в строку */
+/* Для мобильных: иконки в столбик */
 @media (max-width: 768px) {
     .contacts {
-        
-        gap: 4rem;
+       
+        gap: 5rem;
     }
 }
 
@@ -434,6 +436,3 @@ footer {
         padding: 0.5rem;
     }
 }
-
-
-
