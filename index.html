@@ -1,217 +1,125 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gurov</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Гуров Сергей Сергеевич</h1> <!-- Или твоё имя -->
-        <p></p>
-        <div class="contacts">
-    <a href="plam9i@gmail.com" title="Email" aria-label="Написать на email">
-        <img src="assets/icons/mail.png" alt="Иконка Почты" class="icon">
-    </a> 
-    <a href="https://t.me/gurych1010" title="Telegram" aria-label="Открыть Telegram" target="_blank">
-       <img src="assets/icons/tg.png" alt="Иконка Telegram" class="icon">
-    </a> 
-    <a href="https://vk.com/gurych10" title="VK" aria-label="Открыть VK" target="_blank">
-        <img src="assets/icons/vk.png" alt="Иконка VK" class="icon"> 
-    </a>
-</div>
-    <button id="theme-toggle" class="theme-btn" aria-label="Переключить тему" onclick="toggleTheme()">
-        <span class="sun">☀️</span>
-        <span class="moon">🌙</span>
-    </button>
-    </header>
-        <hr class="section-divider1">
-    <section id="hero" class="hero animate-fade">
-        <h2>Работаю на заводе, в свободное время делаю ИИ музыку в нейросетях</h2>
-        <div class="info">
-            <p><strong>Дата рождения:</strong> 10.11.1993</p>
-            <p><strong>Город:</strong> Чудово</p>
-            <p><strong>Работаю в :</strong> Audacity, Suno, FL studio</p>
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="assets/video/koster.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <section id="home" class="hero">
+        <h1 class="typewriter"></h1>
+        <div class="contact-buttons">
+            <a href="https://vk.com/gurych10" class="contact-btn" target="_blank">
+                <img src="assets/icons/vk.png" alt="VK" class="btn-icon"> VK
+            </a>
+            <a href="https://t.me/gurych1010" class="contact-btn" target="_blank">
+                <img src="assets/icons/tg.png" alt="Telegram" class="btn-icon"> Telegram
+            </a>
+            <a href="plam9i@gmail.com" class="contact-btn">
+                <img src="assets/icons/mail.png" alt="Email" class="btn-icon"> Email
+            </a>
         </div>
     </section>
 
-    <section id="experience" class="animate-fade">
-        <h2>Опыт работы</h2>
-        <div class="work">
-            <h3>Какие заказы на музыку выполнил за последнее время?</h3>
-            <p>На юбилеи заводов города Чудово: Энергомаш, РВС, ЖБШ, S.C. Johnson</p>
-            <p>Поздравительные для коллег</p>
-            <p>Праздник "Папа,мама,я - дружная семья"</p>
-            <p>Памятные на стихи участников СВО</p>
-            <p>Короткие рекламные для разных сайтов (proglade.ru, baikal 4x4)</p>
-            <p>Медиапроект "Ты в кадре"</p>
+    <section id="showcase">
+        <h2 class="section-title">Мои треки</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="assets/images/vmeste.png" alt="Butterflies">
+                <h3>Вместе шагаем</h3>
+                <p>Заводской ивент</p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio1">▶</button>
+                </div>
+                <audio id="audio1" src="assets/music/track1.mp3" preload="none"></audio>
+            </div>
+            <div class="card">
+                <img src="assets/images/30years.png" alt="Golden Sunshine">
+                <h3>30 лет</h3>
+                <p>Юбилей компании S.C. Johnson</p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio2">▶</button>
+                </div>
+                <audio id="audio2" src="assets/music/track2.mp3" preload="none"></audio>
+            </div>
+            <div class="card">
+                <img src="assets/images/proglade.png" alt="Stone">
+                <h3>Proglade.ru</h3>
+                <p>Реклама </p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio3">▶</button>
+                </div>
+                <audio id="audio3" src="assets/music/track3.mp3" preload="none"></audio>
+            </div>
+            <div class="card">
+                <img src="assets/images/baikal.jpg" alt="Second Law">
+                <h3>Байкал 4х4</h3>
+                <p>Гордость, честь. Лучший вездеход</p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio4">▶</button>
+                </div>
+                <audio id="audio4" src="assets/music/track4.mp3" preload="none"></audio>
+            </div>
+            <div class="card">
+                <img src="assets/images/papamama.png" alt="Echoes of Night">
+                <h3>Папа, мама, я</h3>
+                <p>Семейный фестиваль</p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio5">▶</button>
+                </div>
+                <audio id="audio5" src="assets/music/track5.mp3" preload="none"></audio>
+            </div>
+            <div class="card">
+                <img src="assets/images/feniks.jpg" alt="Rhythm Fire">
+                <h3>Феникс любви</h3>
+                <p>Любовь</p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio6">▶</button>
+                </div>
+                <audio id="audio6" src="assets/music/track6.mp3" preload="none"></audio>
+            </div>
+            <div class="card">
+                <img src="assets/images/Ygasla.png" alt="Rhythm Fire">
+                <h3>Я с тобой до конца</h3>
+                <p>Обожаю тебя <3</p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio7">▶</button>
+                </div>
+                <audio id="audio7" src="assets/music/track7.mp3" preload="none"></audio>
+            </div>
+            <div class="card">
+                <img src="assets/images/soldat.png" alt="Rhythm Fire">
+                <h3>Хотят ли русские войны?</h3>
+                <p>Евгений Александрович Евтушенко</p>
+                <div class="card-footer">
+                    <button class="play-btn" data-audio-id="audio8">▶</button>
+                </div>
+                <audio id="audio8" src="assets/music/track8.mp3" preload="none"></audio>
+            </div>
         </div>
+      
     </section>
 
  
-    <section id="portfolio" class="animate-fade">
-        <h2>Мои работы</h2>
-        <p>Послушай мои треки:</p>
-        <div class="music-section">
-            <!-- Трек 1 -->
-            <div class="custom-player">
-                <div class="marquee-container">
-                    <div class="marquee">"Вместе шагаем - больше достигаем" </div>
-                </div>
-                <div class="player-controls">
-                    <button class="play-btn" data-track="1">▶</button>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="time">0:00 / 3:30</span>
-                    <div class="volume-control">
-                        <label for="vol1" class="sr-only">Громкость</label>
-                        <input type="range" id="vol1" min="0" max="1" step="0.1" value="0.8">
-                        <span class="volume-icon">🔊</span>
-                    </div>
-                </div>
-                <audio id="audio1" preload="none">
-                    <source src="assets/music/track1.mp3" type="audio/mpeg">
-                    <source src="assets/music/track1.ogg" type="audio/ogg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-            <!-- Трек 2 -->
-            <div class="custom-player">
-                <div class="marquee-container">
-                    <div class="marquee">S.C. Johnson 30 лет</div>
-                </div>
-                <div class="player-controls">
-                    <button class="play-btn" data-track="2">▶</button>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="time">0:00 / 3:30</span>
-                    <div class="volume-control">
-                        <label for="vol2" class="sr-only">Громкость</label>
-                        <input type="range" id="vol2" min="0" max="1" step="0.1" value="0.8">
-                        <span class="volume-icon">🔊</span>
-                    </div>
-                </div>
-                <audio id="audio2" preload="none">
-                    <source src="assets/music/track2.mp3" type="audio/mpeg">
-                    <source src="assets/music/track2.ogg" type="audio/ogg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-            <!-- Трек 3 -->
-            <div class="custom-player">
-                <div class="marquee-container">
-                    <div class="marquee">Proglade.ru</div>
-                </div>
-                <div class="player-controls">
-                    <button class="play-btn" data-track="3">▶</button>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="time">0:00 / 4:15</span>
-                    <div class="volume-control">
-                        <label for="vol3" class="sr-only">Громкость</label>
-                        <input type="range" id="vol3" min="0" max="1" step="0.1" value="0.8">
-                        <span class="volume-icon">🔊</span>
-                    </div>
-                </div>
-                <audio id="audio3" preload="none">
-                    <source src="assets/music/track3.mp3" type="audio/mpeg">
-                    <source src="assets/music/track3.ogg" type="audio/ogg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-                        <!-- Трек 4 -->
-            <div class="custom-player">
-                <div class="marquee-container">
-                    <div class="marquee">Байкал 4х4</div>
-                </div>
-                <div class="player-controls">
-                    <button class="play-btn" data-track="4">▶</button>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="time">0:00 / 3:30</span>
-                    <div class="volume-control">
-                        <label for="vol4" class="sr-only">Громкость</label>
-                        <input type="range" id="vol4" min="0" max="1" step="0.1" value="0.8">
-                        <span class="volume-icon">🔊</span>
-                    </div>
-                </div>
-                <audio id="audio4" preload="none">
-                    <source src="assets/music/track4.mp3" type="audio/mpeg">
-                    <source src="assets/music/track4.ogg" type="audio/ogg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-                        <!-- Трек 5 -->
-            <div class="custom-player">
-                <div class="marquee-container">
-                    <div class="marquee">Папа,мама,я - дружная семья!</div>
-                </div>
-                <div class="player-controls">
-                    <button class="play-btn" data-track="5">▶</button>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="time">0:00 / 3:30</span>
-                    <div class="volume-control">
-                        <label for="vol5" class="sr-only">Громкость</label>
-                        <input type="range" id="vol5" min="0" max="1" step="0.1" value="0.8">
-                        <span class="volume-icon">🔊</span>
-                    </div>
-                </div>
-                <audio id="audio5" preload="none">
-                    <source src="assets/music/track5.mp3" type="audio/mpeg">
-                    <source src="assets/music/track5.ogg" type="audio/ogg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-                        <!-- Трек 6 -->
-            <div class="custom-player">
-                <div class="marquee-container">
-                    <div class="marquee">Феникс</div>
-                </div>
-                <div class="player-controls">
-                    <button class="play-btn" data-track="6">▶</button>
-                    <div class="progress-bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="time">0:00 / 3:30</span>
-                    <div class="volume-control">
-                        <label for="vol6" class="sr-only">Громкость</label>
-                        <input type="range" id="vol6" min="0" max="1" step="0.1" value="0.8">
-                        <span class="volume-icon">🔊</span>
-                    </div>
-                </div>
-                <audio id="audio6" preload="none">
-                    <source src="assets/music/track6.mp3" type="audio/mpeg">
-                    <source src="assets/music/track6.ogg" type="audio/ogg">
-                    Ваш браузер не поддерживает аудио.
-                </audio>
-            </div>
-        </div>
-       
-        <hr class="section-divider">
-    <section id="hobbies" class="animate-fade">
-        <h2>Чем занимаюсь ещё?</h2>
-        <ul>
-            <li>Бег и велопрогулки</li>
-            <li>Клубника</li>
-            <li>Гитара (и музыка!)</li>
-            <li>Путешествия</li>
-        </ul>   
-    </section>
 
-    <footer id="contact">
-        <p>&copy; 2025 Gurych. Все права защищены.</p>
+    <footer class="footer">
+        <p>&copy; 2025 All rights reserved.</p>
+        <div class="socials">
+            <a href="#">G</a>
+            <a href="#">U</a>
+            <a href="#">R</a>
+            <a href="#">O</a>
+            <a href="#">V</a>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-

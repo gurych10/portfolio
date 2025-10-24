@@ -1,438 +1,311 @@
-body {
-    font-family: open sans;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0A0A0A;
+    color: #cf04bb;
     line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Overlay градиент для темных изображений */
-    background-image: url('assets/images/1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: local;
-    transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out; /* Плавная смена */
-    min-height: 100vh;
-    
-}
-header {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 1px solid #080805;
-    backdrop-filter: blur(10px);
-    background-image: url ('assets/images/nota.jpg'); /* Твоё изображение */
-    background-size: cover;
-    background-position: center;
-/* Или градиент вместо изображения: background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); */
-
+    overflow-x: hidden;
+    position: relative;
 }
 
-header h1 {
-    margin: 0;
-    color: #333;
-    animation: fadeInUp 1s ease-out;
-    
-    
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0.3;
 }
 
-.contacts a {
-    color: #007bff;
-    text-decoration: none;
-    padding: 0.5rem 1rem; /* Оставил padding для кликабельности, но можно уменьшить */
-    transition: all 0.3s ease; /* Плавный hover */
-    background: transparent;
-}
-.icon {
-    width: 40px; /* Размер иконки */
-    height: 36px;
-    vertical-align: middle; /* Выравнивание с текстом */
-    transition: transform 0.3s ease; /* Анимация hover вместе с ссылкой */
-}
-
-.contacts a:hover {
-    color: #fff;
-    transform: scale(1.55); /* Лёгкий зум */
-    
-    
-}
-/* Темный режим */
-body.dark-mode {
-    background-color: #1a1a1a; /* Тёмный фон */
-    color: #f0f0f0; /* Светлый текст */
-}
-
-body.dark-mode header,
-body.dark-mode section,
-body.dark-mode .custom-player,
-body.dark-mode #about {
-    background: rgba(26, 26, 26, 0.8) !important; /* Тёмные прозрачные блоки */
-    color: #f0f0f0;
-    border-color: rgba(0, 123, 255, 0.3); /* Синяя линия для разделителей */
-}
-
-body.dark-mode .contacts a {
-    color: #4da6ff; /* Светлее синий для ссылок */
-}
-
-body.dark-mode h1, body.dark-mode h2 {
-    color: #ffffff; /* Яркие заголовки */
-}
-
-/* Аудио-плееры в тёмном: */
-body.dark-mode audio::-webkit-media-controls-panel {
-    background-color: #333; /* Тёмная панель плеера (Chrome) */
-    color: #fff;
-}
-
-/* Кнопка переключения */
-.theme-btn {
-    background: none;
-    border: 1px solid #007bff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    color: #007bff;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-}
-
-.theme-btn:hover {
-    background: rgba(0, 123, 255, 0.1);
-}
-
-.theme-btn .sun {
-    display: block; /* По умолчанию светлый режим */
-}
-
-.theme-btn .moon {
-    display: none;
-}
-
-body.dark-mode .theme-btn .sun {
-    display: none;
-}
-
-body.dark-mode .theme-btn .moon {
-    display: block;
-}
-
-/* Для мобильных: Кнопка меньше */
-@media (max-width: 768px) {
-    .theme-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-}
-
-/* Для мобильных: иконки чуть больше */
-@media (max-width: 768px) {
-    .icon {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-.contacts {
-    display: flex;
-    justify-content: center;
-    gap: 1rem; /* Расстояние между иконками */
-    font-size: 1rem; /* Размер иконки + текст */
-}
-
-
-
-
-
-/* Для мобильных: иконки в столбик */
-@media (max-width: 768px) {
-    .contacts {
-       
-        gap: 5rem;
-    }
-}
-
-.hero, section {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    border-bottom: 1px solid #eee;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.animate-fade {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-h2 {
-    color: #333;
-    border-bottom: 2px solid #7a0272; 
-    padding-bottom: 0.5rem;
-}
-
-.tech-list, ul {    
-    list-style-type: none;
-    padding-left: 2rem;
-}
-
-.music-section {
+.hero {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
 }
 
-.custom-player {
-    background: rgba(255, 255, 255, 0.9);
+.typewriter {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #A100FF, #FF0080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    overflow: hidden; /* Для эффекта печати */
+    border-right: 3px solid transparent; /* Для курсора */
+    min-height: 5rem; /* Фиксируем высоту, чтобы не сдвигало элементы */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor {
+    display: inline-block;
+    background: linear-gradient(45deg, #A100FF, #FF0080);
+    margin-left: 0.1em;
+    width: 3px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+}
+
+.prompt-input {
+    width: 80%;
+    max-width: 600px;
     padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    color: #FFFFFF;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
 }
 
-.custom-player:hover {
-    transform: scale(1.02);
+.prompt-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    height: 30px;
-    border-bottom: 1px solid #ddd;
+.contact-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 400px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем */
+}
+
+.contact-btn {
+    background: linear-gradient(45deg, #A100FF, #FF0080);
+    color: #FFFFFF;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto; /* Не растягиваем кнопку */
+    white-space: nowrap; /* Текст не переносится */
+    min-width: 120px; /* Минимальная ширина для красоты */
+}
+
+.contact-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(161, 0, 255, 0.4);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0; /* Иконка не сжимается */
+}
+
+.note-icon::before {
+    content: '🎵';
+}
+
+section {
+    padding: 5rem 2rem;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.show-more {
+    text-align: center;
+    margin-top: 2rem;
+    color: #A100FF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    position: relative;
+    cursor: pointer;
+    display: flex; /* Ключ: flex по вертикали */
+    flex-direction: column; /* Столбец */
+    min-height: 300px; /* Минимальная высота для равномерности карточек */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(161, 0, 255, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
     margin-bottom: 1rem;
 }
 
-.marquee {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
-    padding-left: 100%;
+.card:active {
+    transform: scale(0.98); /* Лёгкий эффект нажатия */
+    transition: transform 0.1s;
 }
 
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+.card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #A100FF, #FF0080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 
+        0 0 5px rgba(161, 0, 255, 0.5),
+        0 0 10px rgba(255, 0, 128, 0.3),
+        0 0 15px rgba(161, 0, 255, 0.2); /* Неоновый glow */
 }
 
-.player-controls {
+.card p {
+    font-size: 0.8rem;
+    opacity: 0.9; /* Чуть ярче для читаемости */
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
+    background: linear-gradient(45deg, #A100FF, #FF0080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 
+        0 0 3px rgba(161, 0, 255, 0.4),
+        0 0 6px rgba(255, 0, 128, 0.2); /* Мягкий неон для описания */
+}
+
+.card-footer {
     display: flex;
+    justify-content: center; /* Центр по горизонтали */
     align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    margin-top: auto; /* Ключ: прижимает к низу карточки */
+    margin-bottom: 0.5rem; /* Отступ снизу */
+    /* Убрали opacity и font-size — они мешали кнопке */
+}
+.card:hover h3,
+.card:hover p {
+    text-shadow: 
+        0 0 10px rgba(161, 0, 255, 0.7),
+        0 0 20px rgba(255, 0, 128, 0.5),
+        0 0 30px rgba(161, 0, 255, 0.3); /* Ярче на hover */
 }
 
 .play-btn {
-    background: #007bff;
-    color: rgb(11, 9, 9);
+    background: none;
     border: none;
+    color: #FFFFFF;
+    font-size: 1.5rem; /* Больше для видимости */
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+    padding: 0.5rem;
+    border-radius: 50%; /* Круглая кнопка */
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .play-btn:hover {
-    background: #0056b3;
+    color: #A100FF;
     transform: scale(1.1);
+    background: rgba(161, 0, 255, 0.1); /* Лёгкий фон на hover */
 }
 
-.play-btn.playing {
-    background: #28a745;
+.likes-container {
+    display: flex;
+    justify-content: center; /* Центрируем лайки */
+    margin-top: 0.5rem;
 }
 
-.progress-bar {
-    flex: 1;
-    height: 5px;
-    background: #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    cursor: pointer;
-    min-width: 150px; /* Для мобильных */
-}
-
-.progress {
-    height: 100%;
-    background: #007bff;
-    width: 0%;
-    transition: width 0.1s;
-}
-
-.time {
-    font-size: 0.9rem;
-    color: #666;
-    min-width: 60px;
-}
-
-.volume-control {
+.likes {
+    font-size: 0.8rem;
+    opacity: 0.6;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    min-width: 100px;
 }
 
-.volume-control input[type="range"] {
-    flex: 1;
-    height: 5px;
-    background: #ddd;
-    border-radius: 5px;
-    outline: none;
-    -webkit-appearance: none;
+.likes::before {
+    content: '👍';
 }
 
-.volume-control input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: #007bff;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.volume-icon {
-    font-size: 1rem;
-    color: #666;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-audio {
-    display: none;
-}
-
-.projects {
-    background: rgba(248, 248, 248, 0.8);
-    padding: 1rem;
-    border-radius: 4px;
-    margin-top: 1rem;
-    transition: box-shadow 0.3s;
-}
-
-.projects:hover {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-footer {
+.footer {
+    padding: 2rem;
     text-align: center;
-    padding: 0.10rem;
-    background: rgba(248, 248, 248, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.6;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-/* Фоны для треков */
-/* Фоны для треков — обложки как background */
-.track1-bg {
-    background-image: url('assets/images/vmeste.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    /* Если хочешь overlay градиент: background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/cover1.jpg'); */
-}
-
-.track2-bg {
-    background-image: url('assets/images/30years.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    /* Аналогично для overlay: background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/cover2.jpg'); */
-}
-.track3-bg {
-    background-image: url('assets/images/proglade.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    /* Если хочешь overlay градиент: background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/cover1.jpg'); */
-}
-
-.track4-bg {
-    background-image: url('assets/images/baikal.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    /* Аналогично для overlay: background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/cover2.jpg'); */
-}
-.track5-bg {
-    background-image: url('assets/images/papamama.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    /* Если хочешь overlay градиент: background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/cover1.jpg'); */
-}
-
-.track6-bg {
-    background-image: url('assets/images/feniks.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    /* Аналогично для overlay: background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/cover2.jpg'); */
-}
-
-.hero, section, header, .custom-player {
-    background: rgba(255, 255, 255, 0.5) !important;
-}
-.section-divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #d502ed, transparent); /* Градиентная линия */
-    margin: 2rem 0;
-    border: none; /* Убираем default-стиль hr */
-}
-.section-divider1 {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #d502ed, transparent); /* Градиентная линия */
-    margin: 1rem 0;
-    border: none; /* Убираем default-стиль hr */
-}
-.mobile-nav {
-    display: none;
+.socials a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
-    section, .hero {
-        padding: 1rem;
+    .typewriter {
+        font-size: 2.5rem;
+        min-height: 4rem; /* Фиксируем высоту в мобильке */
     }
-    .player-controls {
-        gap: 0.5rem;
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    .progress-bar {
-        min-width: 100px;
-    }
-    
-    .mobile-nav ul {
-        display: flex;
-        justify-content: space-around;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .mobile-nav a {
-        color: #fff;
-        text-decoration: none;
-        padding: 0.5rem;
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 }
