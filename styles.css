@@ -7,7 +7,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #0A0A0A;
-    color: #cf04bb;
+    color: #f106d9;
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
@@ -45,17 +45,23 @@ body {
     background-clip: text;
     overflow: hidden; /* Для эффекта печати */
     border-right: 3px solid transparent; /* Для курсора */
-    min-height: 5rem; /* Фиксируем высоту, чтобы не сдвигало элементы */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 7rem; /* Увеличили для длинного текста + wrap */
+    line-height: 1.2; /* Компактнее, меньше прыжков */
+    display: block; /* Фикс: block вместо flex для естественного text flow */
+    text-align: center; /* Центрируем текст */
+    white-space: normal; /* Позволяем перенос */
+    word-wrap: break-word; /* Перенос слов без разрывов */
+    overflow-wrap: break-word; /* Дополнительный фикс для длинных слов */
+    hyphens: auto; /* Авто-дефисы для русского */
 }
 
 .cursor {
-    display: inline-block;
+    display: inline-block; /* Фикс: inline-block для лучшего позиционирования */
     background: linear-gradient(45deg, #A100FF, #FF0080);
     margin-left: 0.1em;
     width: 3px;
+    vertical-align: bottom; /* Фикс: прилипает к baseline при wrap */
+    line-height: inherit; /* Синхронизирует с текстом */
     animation: blink 1s infinite;
 }
 
@@ -209,7 +215,7 @@ section {
     font-size: 0.8rem;
     opacity: 0.9; /* Чуть ярче для читаемости */
     margin-bottom: 0.5rem;
-    flex-grow: 1;
+    flex-grow: 1; /* Занимает пространство, чтобы footer ушёл вниз */
     background: linear-gradient(45deg, #A100FF, #FF0080);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -219,6 +225,15 @@ section {
         0 0 6px rgba(255, 0, 128, 0.2); /* Мягкий неон для описания */
 }
 
+/* Усиливаем неон на hover карточки */
+.card:hover h3,
+.card:hover p {
+    text-shadow: 
+        0 0 10px rgba(161, 0, 255, 0.7),
+        0 0 20px rgba(255, 0, 128, 0.5),
+        0 0 30px rgba(161, 0, 255, 0.3); /* Ярче на hover */
+}
+
 .card-footer {
     display: flex;
     justify-content: center; /* Центр по горизонтали */
@@ -226,13 +241,6 @@ section {
     margin-top: auto; /* Ключ: прижимает к низу карточки */
     margin-bottom: 0.5rem; /* Отступ снизу */
     /* Убрали opacity и font-size — они мешали кнопке */
-}
-.card:hover h3,
-.card:hover p {
-    text-shadow: 
-        0 0 10px rgba(161, 0, 255, 0.7),
-        0 0 20px rgba(255, 0, 128, 0.5),
-        0 0 30px rgba(161, 0, 255, 0.3); /* Ярче на hover */
 }
 
 .play-btn {
@@ -299,7 +307,8 @@ section {
 @media (max-width: 768px) {
     .typewriter {
         font-size: 2.5rem;
-        min-height: 4rem; /* Фиксируем высоту в мобильке */
+        min-height: 5.5rem; /* Увеличили для мобильки + wrap */
+        line-height: 1.2; /* Компактнее */
     }
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
