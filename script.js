@@ -147,6 +147,9 @@ function refreshCards() {
         setTimeout(() => {
             btn.textContent = 'Покажи ещё треки';
             btn.classList.remove('обновляю');
+            btn.style.opacity = '1';
+            btn.style.background = 'linear-gradient(45deg, #A100FF, #FF0080)';  // НОВОЕ: Прямой сброс градиента
+            btn.style.cursor = 'pointer';  
             
             // НОВОЕ: Автоскролл только на мобильке после анимации
             if (window.innerWidth <= 768) {
@@ -161,8 +164,15 @@ function refreshCards() {
     }, 300);  // Пауза для fade-out
 }
 
-// Listener на кнопку
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('refresh-btn').addEventListener('click', refreshCards);
+    // Если нужно fallback для клавиатуры/Enter: 
+    const btn = document.getElementById('refresh-btn');
+    btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            refreshCards();
+        }
+    });
+    // Убрали click-listener, т.к. onclick в HTML
 });
 
