@@ -125,7 +125,7 @@ function refreshCards() {
             const card = document.createElement('div');
             card.className = 'card fade-in';
             card.innerHTML = `
-                <img src="${track.img}" alt="${track.title}" loading="lazy">
+                <img src="${track.img}" alt="${track.title}" loading="lazy" width="300" height="150">
                 <h3>${track.title}</h3>
                 <p>${track.desc}</p>
                 <div class="card-footer">
@@ -165,3 +165,4 @@ function refreshCards() {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('refresh-btn').addEventListener('click', refreshCards);
 });
+
