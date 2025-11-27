@@ -137,7 +137,7 @@ body {
 }
 
 section {
-    padding: 1rem;
+    padding: 5rem 2rem;
     min-height: 100vh;
 }
 
@@ -753,5 +753,8 @@ section {
             0 4px 20px rgba(161, 0, 255, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
+}
+#showcase {
+    padding-top: 1rem !important; /* Уменьшаем верхний отступ. Можете поставить 1rem, 2rem или даже 0 */
 }
 
