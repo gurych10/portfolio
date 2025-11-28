@@ -97,8 +97,10 @@ const allTracks = [  // Пул из 32 треков (старые + новые; 
     { id: 'audio29', title: '60 ЧЖБШ', desc: 'Юбилей ЖБШ', img: 'assets/images/60.png', audio: 'assets/music/track29.mp3'},
     { id: 'audio30', title: 'Гена', desc: 'Гена из интеграла', img: 'assets/images/integral.png', audio: 'assets/music/track30.mp3'},
     { id: 'audio31', title: 'В пять утра', desc: 'На работу с утра', img: 'assets/images/rabota5.jpg', audio: 'assets/music/track31.mp3'},
-    { id: 'audio32', title: 'Папа', desc: 'Лучший папа ', img: 'assets/images/papa.png', audio: 'assets/music/track32.mp3'}
-];
+    { id: 'audio32', title: 'Папа', desc: 'Лучший папа ', img: 'assets/images/papa.png', audio: 'assets/music/track32.mp3'},
+    { id: 'audio33', title: 'Друг', desc: 'О настоящей дружбе', img: 'assets/images/drug.png', audio: 'assets/music/track33.mp3'},
+    { id: 'audio34', title: 'Чудово вокзал', desc: 'Вокзал города Чудово', img: 'assets/images/vokzal.png', audio: 'assets/music/track34.mp3'},
+]
     
 function refreshCards() {
     const grid = document.getElementById('showcase-grid');
