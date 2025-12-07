@@ -62,6 +62,39 @@ document.addEventListener('DOMContentLoaded', () => {
         addAudioListener(card, audioId);
     });
 });
+function addAudioListener(card, audioId) {
+    const btn = card.querySelector('.play-btn');
+    const audio = document.getElementById(audioId);
+
+    // Обработчик для кнопки "Плей/Пауза"
+    btn.addEventListener('click', function() {
+        if (audio.paused) {
+            // Останавливаем все другие треки
+            document.querySelectorAll('audio').forEach(a => {
+                if (a !== audio) {
+                    a.pause();
+                    a.currentTime = 0;
+                    const otherBtn = document.querySelector(`[data-audio-id="${a.id}"]`);
+                    if (otherBtn) otherBtn.textContent = '▶';
+                }
+            });
+            // Запускаем текущий трек
+            audio.play();
+            btn.textContent = '⏸';
+        } else {
+            // Останавливаем текущий трек
+            audio.pause();
+            btn.textContent = '▶';
+        }
+    });
+
+    // Обработчик для клика по всей карточке (опционально)
+    card.addEventListener('click', function(e) {
+        // Если кликнули не на кнопку — запускаем/останавливаем через кнопку
+        if (!e.target.classList.contains('play-btn')) {
+            btn.click(); // Имитируем клик по кнопке
+        }
+    });
 
 // НОВОЕ: Refresh Cards (замена на 8 новых)
 const allTracks = [  // Пул из 32 треков (старые + новые; можно расширить)
@@ -177,4 +210,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // Убрали click-listener, т.к. onclick в HTML
 });
+
 
