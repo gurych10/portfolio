@@ -54,14 +54,6 @@ function addAudioListener(card, audioId) {
         }
     });
 }
-
-// Инициализация для существующих карточек
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.card').forEach(card => {
-        const audioId = card.querySelector('.play-btn').getAttribute('data-audio-id');
-        addAudioListener(card, audioId);
-    });
-});
 function addAudioListener(card, audioId) {
     const btn = card.querySelector('.play-btn');
     const audio = document.getElementById(audioId);
@@ -95,6 +87,14 @@ function addAudioListener(card, audioId) {
             btn.click(); // Имитируем клик по кнопке
         }
     });
+}
+// Инициализация для существующих карточек
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.card').forEach(card => {
+        const audioId = card.querySelector('.play-btn').getAttribute('data-audio-id');
+        addAudioListener(card, audioId);
+    });
+});
 
 // НОВОЕ: Refresh Cards (замена на 8 новых)
 const allTracks = [  // Пул из 32 треков (старые + новые; можно расширить)
@@ -209,6 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     // Убрали click-listener, т.к. onclick в HTML
+    
 });
-
 
